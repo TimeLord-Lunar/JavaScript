@@ -1,0 +1,47 @@
+AJAX et HTML
+EXERCICE CONSTRUIRETABLEAUPAYS
+Reprenez votre TP sur la pollution et adaptez-le afin d’afficher les informations provenant du
+serveur suivant : https://digicode.cleverapps.io/json/pays/pollution
+EXERCICE AFFICHAGEDONNEES
+• Créer un fichier HTML tp09-affichageDonnees.html
+• Créer également un fichier javascript pour inclure tout le javascript nécessaire à ce TP
+• L’objectif de ce TP est de récupérer avec les techniques AJAX vues en cours des
+données situées sur un serveur distant.
+o Les données à récupérer sont disponibles à cette URL :
+https://restcountries.com/v2/all
+o Affichez dans la page HTML les données récupérées à cette adresse.
+• Déroulement :
+o Dans la balise body de votre page HTML, ajoutez un attribut onload qui va
+appeler une fonction javascript que vous avez allez écrire.
+o Dans cette fonction javascript, reprenez le code AJAX vu en cours en
+remplaçant l’URL par celle ci-dessus.
+o Lorsque le serveur répond (condition sur readyState et status) , récupérez les
+informations renvoyez par le serveur et affichez les dans une div ou un span de
+votre page HTML.
+EXERCICE AFFICHAGEPAYSINFOS
+• Comme vous avez pu le constater précédemment la masse de données est importante.
+Nous allons donc procéder à un peu plus de sélection en n’affichant que les pays avec
+leur capitale respective, leur population et la région à laquelle ils appartiennent.
+• Attention, pour être capable de faire cela vous allez devoir transformer les
+informations retournées par le serveur en JSON.
+let data = JSON.parse(req.responseText)
+• Une fois cette transformation effectuée vous allez pouvoir récupérer des informations
+dans ce JSON.
+Exemple :
+let data = JSON.parse(req.responseText) ;
+2
+for (let i=0 ; i<data.length ; i++){
+let nomPays = data[i].nom;
+// Suite du code
+}
+• Reprenez le TP précédent et affinez votre affichage.
+EXERCICE AFFICHAGEPAYSETCAPITALELISTE
+• Reprenez maintenant le TP précédent et affichez maintenant les informations sous
+forme de tableau.
+• [DIFFICILE] Ajoutez des icones sur l’entête de colonne de la population pour trier par
+population croissante ou descendante. En fonction de l’état de la colonne (triée ou
+sens du tri), l’icône change :
+o Une icône pour la colonne non triée (situation initiale)
+o Une icone pour le tri ascendant
+o Une icone pour le tri descendant
+o Pour le choix des icones vous pouvez utiliser font awesome.

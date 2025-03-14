@@ -1,0 +1,140 @@
+Manipulation du DOM
+5 EXERCICES
+EXERCICE ADDITION
+• Créez une page HTML tp08-addition.html
+• Dans cette page mettez en place 2 champs input et un bouton.
+• Le but de cet exercice est de faire saisir 2 nombres à l’utilisateur (1 par champ de
+saisie). Lorsque l’utilisateur clique sur le bouton, le résultat de l’addition s’affiche dans
+la page HTML avec le message suivant : « Le résultat de l’addition est : … »
+• Astuces :
+o Positionnez des id sur vos champs de saisie de manière à pouvoir utiliser le
+querySelector
+o Placez également dans votre page html un span avec un id qui accueillera le
+résultat de l’opération. Exemple :
+<span id="resultat"></span>
+• Contrôle de saisie : si un des champs de saisie ne contient pas un nombre, un message
+d’alerte sur fond rouge s’affiche : « Vous devez saisir un nombre ».
+EXERCICE OPERATION
+• Créez une page HTML tp08-operation.html
+• Dans cette page mettez en place 2 champs input, une liste de sélection permettant de
+choisir un opérateur arithmétique (+, -, *, /) et un bouton.
+• Le but de cet exercice est de faire saisir 2 nombres à l’utilisateur (1 par champ de
+saisie). Lorsque l’utilisateur clique sur le bouton, le résultat de l’opération sélectionnée
+par l’utilisateur s’affiche dans la page HTML avec un des messages suivants selon le
+cas :
+o « Le résultat de l’addition est : … »
+o « Le résultat de la soustraction est : … »
+o « Le résultat de la multiplication est : … »
+o « Le résultat de la division est : … »
+• Contrôle de saisie : si un des champs de saisie ne contient pas un nombre, un message
+d’alerte sur fond rouge s’affiche : « Vous devez saisir un nombre ».
+2
+EXERCICE CONTROLEFORMULAIRE
+• Créez une page HTML tp08-formulaire.html
+o Dans cette page vous devez ajouter un formulaire qui permet à un utilisateur
+de saisir :
+▪ Son nom
+▪ Son prénom
+▪ Sa date de naissance
+o Un bouton de validation permet de soumettre le formulaire
+• Contrôle de saisie : lorsque l’utilisateur clique sur le bouton de validation, une
+fonction est appelée. Cette fonction contrôle les saisies effectuées par l’utilisateur :
+o Le nom doit être renseigné
+o Le prénom doit être renseigné
+o La date de naissance doit être renseignée
+• Si l’utilisateur n’a pas respecté un des contrôles ci-dessus, un message d’erreur
+s’affiche sur fond rouge dans la page
+EXERCICE AFFICHAGEJSON
+• Créez un fichier tp08-affichage-json.html avec la structure suivante :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>Document</title>
+<script src="monFichier.js">
+</script>
+</head>
+<body onload="initialiserDonnees()">
+<h1 id="titre"></h1>
+<h2 id="annee"></h2>
+<span id="listePays"></span>
+</body>
+</html>
+• Comme vous le constatez, une fonction javascript appelée initialiserDonnees() est
+appelée en fin de chargement de page (body onload)
+• Dans votre fichier javascript, vous devez développer cette fonction javascript
+initialiserDonnees().
+3
+o Dans cette fonction vous devez tout d’abord déclarer une variable JSON qui va
+contenir des données de pollution sur un certain nombre de pays :
+let data = {"polluant":"CO2",
+"unite":"milliards de tonnes",
+"annee":2017,
+"pays":[{"nom":"Chine", "valeur":9.26, "pourcentage":28.2, "code":"cn"},
+{"nom":"Etats-Unis", "valeur":4.76, "pourcentage":14.5, "code":"us"},
+{"nom":"Inde", "valeur":2.16, "pourcentage":6.6, "code":"in"},
+{"nom":"Russie", "valeur":1.54, "pourcentage":4.7, "code":"ru"},
+{"nom":"Japon", "valeur":1.13, "pourcentage":3.4, "code":"jp"},
+{"nom":"Allemagne", "valeur":0.72, "pourcentage":2.2, "code":"de"},
+{"nom":"Corée du Sud", "valeur":0.6, "pourcentage":1.8, "code":"kr"},
+{"nom":"Iran", "valeur":0.57, "pourcentage":1.7, "code":"ir"},
+{"nom":"Canada", "valeur":0.55, "pourcentage":1.7, "code":"ca"}]}
+• Description du JSON :
+o polluant : fournit le nom du polluant
+o unite : unité des valeurs fournies dans le JSON
+o année : année de relevé
+o pays : tableau des pays avec pour chaque pays :
+▪ nom : son nom
+▪ valeur : quantité de polluant émis
+▪ pourcentage : pourcentage dans le monde
+▪ code : code du drapeau
+• Grace à ce que vous connaissez des sélecteurs javascript, modifiez le contenu de la
+balise h1 (en javascript) afin qu’elle contienne le nom du polluant et l’unité. Ces
+informations sont issues du JSON.
+• De même, pour la balise h2, modifiez son contenu pour que cela affiche l’année
+• Enfin, faites une boucle sur l’ensemble des pays contenus dans le json et affichez
+toutes les informations concernant ces pays dans la balise span.
+4
+(DIFFICILE) EXERCICE TABLEAUPAYS
+• Créez une page HTML tp08-tableau-pays.html
+• L’objectif de cet TP d’aller un peu plus loin que le TP précédent en affichant les
+informations des pays dans une table plutôt que dans une balise span :
+• Votre source de données va être le JSON précédent
+• Comment récupérer l’image du drapeau ?
+Cette image est fournie par l’URL ci-dessous dans laquelle il suffit de remplacer le mot code
+en gras par le code du drapeau fourni par chaque pays
+<img src="https://flagcdn.com/24x18/code.png">
+Exemple pour le Japon : <img src="https://flagcdn.com/24x18/jp.png">
+• Pour cet exercice vous ne partez pas d’une page blanche :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+let data = {...};
+</script>
+</head>
+<body>
+<h1 id="titre"></h1>
+<h2 id="annee"></h2>
+<table>
+5
+<thead>
+<tr>
+<th>Nom</th>
+<th>Valeur</th>
+<th>%</th>
+</tr>
+</thead>
+<tbody id="corps">
+</tbody>
+</table>
+</body>
+</html>
+• Dans cette page il faudra modifier les éléments h1 et h2 comme dans le TP précédent
+• Dans cette page il faudra également modifier le tbody de la table afin de générer une
+ligne par pays.

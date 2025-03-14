@@ -1,0 +1,54 @@
+{
+    "utilisateurs": [
+      {
+        "id": 1,
+        "nom": "Dupont",
+        "prenom": "Jean",
+        "dateNaissance": "1985-06-15",
+        "lieuNaissance": "Paris",
+        "departementNaissance": "75",
+        "numeroRue": "12",
+        "libelleRue": "Rue de la Paix",
+        "codePostal": "75002",
+        "ville": "Paris"
+      },
+      {
+        "id": 2,
+        "nom": "Martin",
+        "prenom": "Sophie",
+        "dateNaissance": "1990-08-21",
+        "lieuNaissance": "Lyon",
+        "departementNaissance": "69",
+        "numeroRue": "25",
+        "libelleRue": "Avenue des Champs",
+        "codePostal": "69007",
+        "ville": "Lyon"
+      },
+      {
+        "id": 3,
+        "nom": "Durand",
+        "prenom": "Paul",
+        "dateNaissance": "1978-02-10",
+        "lieuNaissance": "Marseille",
+        "departementNaissance": "13",
+        "numeroRue": "8",
+        "libelleRue": "Boulevard Saint-Michel",
+        "codePostal": "13006",
+        "ville": "Marseille"
+      },
+      {
+        "id": "93a9",
+        "idCreateur": "votre_identifiant",
+        "nom": "Tuséki",
+        "prenom": "Georges",
+        "genre": "Homme",
+        "dateNaissance": "2025-03-03",
+        "lieuNaissance": "Paris",
+        "departementNaissance": "1",
+        "numeroRue": "46",
+        "libelleRue": "Rue de la Boustifaille",
+        "codePostal": "35500",
+        "ville": "Pré-au-Lard"
+      }
+    ]
+  }

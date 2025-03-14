@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition</title>
+    <style>
+        /* Style pour le message d'erreur */
+        .erreur {
+            color: red;
+            background-color: #ffe6e6;
+            padding: 5px;
+            border: 1px solid red;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Addition de deux nombres</h1>
+    <form id="formAddition">
+        <label for="nombre1">Nombre 1 :</label>
+        <input type="text" id="nombre1" placeholder="Entrez un nombre">
+        <br><br>
+
+        <label for="nombre2">Nombre 2 :</label>
+        <input type="text" id="nombre2" placeholder="Entrez un nombre">
+        <br><br>
+
+        <button type="button" id="boutonAddition">Additionner</button>
+    </form>
+
+    <p id="resultat"></p>
+
+    <script>
+        // Sélection des éléments du DOM
+        const nombre1 = document.querySelector("#nombre1");
+        const nombre2 = document.querySelector("#nombre2");
+        const resultat = document.querySelector("#resultat");
+        const bouton = document.querySelector("#boutonAddition");
+
+        // Fonction pour effectuer l'addition
+        const additionner = () => {
+            // Conversion des valeurs en nombres
+            const val1 = parseFloat(nombre1.value);
+            const val2 = parseFloat(nombre2.value);
+
+            // Vérification des valeurs
+            if (isNaN(val1) || isNaN(val2)) {
+                resultat.innerHTML = "Vous devez saisir un nombre";
+                resultat.classList.add("erreur");
+            } else {
+                const somme = val1 + val2;
+                resultat.innerHTML = `Le résultat de l'addition est : ${somme}`;
+                resultat.classList.remove("erreur");
+            }
+        };
+
+        // Écouteur d'événement sur le bouton
+        bouton.addEventListener("click", additionner);
+    </script>
+
+</body>
+</html>

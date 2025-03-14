@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des utilisateurs</title>
+    <script src="modale-view.js"></script>
+    <script>
+        const idCreateur = 'votre_identifiant'; // Remplacez par votre identifiant
+
+        // Fonction pour récupérer les utilisateurs
+        function fetchUtilisateurs() {
+            fetch(`http://localhost:3000/utilisateurs/${idCreateur}`)
+                .then(response => response.json())
+                .then(data => afficherUtilisateurs(data))
+                .catch(error => console.error('Erreur de récupération des utilisateurs:', error));
+        }
+
+        // Fonction pour afficher les utilisateurs dans le tableau
+        function afficherUtilisateurs(utilisateurs) {
+            const tbody = document.getElementById('utilisateurs-table');
+            tbody.innerHTML = ''; // Réinitialiser le tableau
+            utilisateurs.forEach(utilisateur => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${utilisateur.id}</td>
+                    <td>${utilisateur.nom}</td>
+                    <td>${utilisateur.prenom}</td>
+                    <td>${utilisateur.dateNaissance}</td>
+                    <td>${utilisateur.lieuNaissance}</td>
+                    <td>${utilisateur.numeroRue} ${utilisateur.libelleRue}, ${utilisateur.codePostal} ${utilisateur.ville}</td>
+                    <td>
+                        <button onclick="openModaleModification(${utilisateur.id})">Modifier</button>
+                        <button onclick="confirmerSuppression(${utilisateur.id})">🗑️</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Fonction pour ouvrir la modale de création d'utilisateur
+        function openModaleCreation() {
+            openModale('modale1');
+        }
+
+        // Fonction pour ouvrir la modale de modification d'un utilisateur
+        function openModaleModification(id) {
+            fetch(`http://localhost:3000/utilisateurs/${idCreateur}/${id}`)
+                .then(response => response.json())
+                .then(utilisateur => {
+                    // Remplir les champs de la modale avec les données actuelles de l'utilisateur
+                    document.getElementById('modale1-id').value = utilisateur.id;
+                    document.getElementById('nom').value = utilisateur.nom;
+                    document.getElementById('prenom').value = utilisateur.prenom;
+                    document.getElementById('genre').value = utilisateur.genre;
+                    document.getElementById('dateNaissance').value = utilisateur.dateNaissance;
+                    document.getElementById('lieuNaissance').value = utilisateur.lieuNaissance;
+                    document.getElementById('departementNaissance').value = utilisateur.departementNaissance;
+                    document.getElementById('numeroRue').value = utilisateur.numeroRue;
+                    document.getElementById('libelleRue').value = utilisateur.libelleRue;
+                    document.getElementById('codePostal').value = utilisateur.codePostal;
+                    document.getElementById('ville').value = utilisateur.ville;
+
+                    // Ouvrir la modale pour modifier
+                    openModale('modale1');
+                })
+                .catch(error => console.error('Erreur de récupération de l\'utilisateur:', error));
+        }
+
+        // Fonction pour créer ou modifier un utilisateur
+        function creerOuModifierUtilisateur() {
+            const utilisateur = {
+                idCreateur: idCreateur,
+                nom: document.getElementById('nom').value,
+                prenom: document.getElementById('prenom').value,
+                genre: document.getElementById('genre').value,
+                dateNaissance: document.getElementById('dateNaissance').value,
+                lieuNaissance: document.getElementById('lieuNaissance').value,
+                departementNaissance: document.getElementById('departementNaissance').value,
+                numeroRue: document.getElementById('numeroRue').value,
+                libelleRue: document.getElementById('libelleRue').value,
+                codePostal: document.getElementById('codePostal').value,
+                ville: document.getElementById('ville').value
+            };
+
+            const utilisateurId = document.getElementById('modale1-id').value;
+
+            let url = 'http://localhost:3000/utilisateurs';
+            let method = 'POST';
+
+            if (utilisateurId) {
+                url += utilisateurId;
+                method = 'PUT';
+            }
+
+            fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(utilisateur)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Erreur : ' + data.error);
+                    } else {
+                        alert('Utilisateur créé/actualisé avec succès!');
+                        fetchUtilisateurs();
+                        closeModale('modale1');
+                    }
+                })
+                .catch(error => console.error('Erreur lors de la création/modification de l\'utilisateur:', error));
+        }
+
+        // Fonction pour confirmer la suppression
+        function confirmerSuppression(id) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
+                supprimerUtilisateur(id);
+            }
+        }
+
+        // Fonction pour supprimer un utilisateur
+        function supprimerUtilisateur(id) {
+            fetch(`http://localhost:3000/utilisateurs/${idCreateur}/${id}`, {
+                method: 'DELETE'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Erreur : ' + data.error);
+                    } else {
+                        alert('Utilisateur supprimé avec succès!');
+                        fetchUtilisateurs();
+                    }
+                })
+                .catch(error => console.error('Erreur de suppression de l\'utilisateur:', error));
+        }
+
+        // Charger les utilisateurs au chargement de la page
+        window.onload = function() {
+            fetchUtilisateurs();
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Gestion des utilisateurs</h1>
+    
+    <button onclick="openModaleCreation()">+ Ajouter</button>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de naissance</th>
+                <th>Lieu de naissance</th>
+                <th>Adresse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="utilisateurs-table"></tbody>
+    </table>
+
+    <!-- Modale pour la création et modification d'un utilisateur -->
+    <modale-view id="modale1" modale-width="30%">
+        <div slot="title" header-color="#28a745">Créer/Modifier un utilisateur</div>
+        <div slot="body">
+            <input type="hidden" id="modale1-id">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom"><br><br>
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom"><br><br>
+            <label for="genre">Genre:</label>
+            <select id="genre">
+                <option value="Homme">Homme</option>
+                <option value="Femme">Femme</option>
+                <option value="Autre">Autre</option>
+            </select><br><br>
+            <label for="dateNaissance">Date de naissance:</label>
+            <input type="date" id="dateNaissance"><br><br>
+            <label for="lieuNaissance">Lieu de naissance:</label>
+            <input type="text" id="lieuNaissance"><br><br>
+            <label for="departementNaissance">Département de naissance:</label>
+            <input type="text" id="departementNaissance"><br><br>
+            <label for="numeroRue">Numéro de rue:</label>
+            <input type="text" id="numeroRue"><br><br>
+            <label for="libelleRue">Libellé de rue:</label>
+            <input type="text" id="libelleRue"><br><br>
+            <label for="codePostal">Code postal:</label>
+            <input type="text" id="codePostal"><br><br>
+            <label for="ville">Ville:</label>
+            <input type="text" id="ville"><br><br>
+        </div>
+        <div slot="footer">
+            <input type="button" value="Annuler" onclick="closeModale('modale1')">
+            <input type="button" value="Valider" onclick="creerOuModifierUtilisateur()">
+        </div>
+    </modale-view>
+</body>
+
+</html>

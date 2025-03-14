@@ -1,0 +1,110 @@
+TP 10 – Formulaire HTML
+EXERCICE FILTRAGE POLLUANTS
+• L’objectif de cet TP est d’ajouter à notre affichage des polluants par pays 2 champs de
+saisies appelés MIN et MAX et qui vont nous permettre de sélectionner les pays dont
+la valeur de pollution sera comprise entre les 2 nombres saisis par l’utilisateur. :
+• Votre source de données est l’URL DIGINAMIC suivante:
+https://digicode.cleverapps.io/json/pays/pollution
+• Règles de gestion :
+o Si le MIN est supérieur au MAX vous devez afficher une alerte pour inviter
+l’utilisateur à saisir des nombres cohérents
+o Si le MIN est négatif ou le MAX est négatif vous devez afficher une alerte pour
+inviter l’utilisateur à saisir des valeurs positives
+o Si le MIN n’est pas renseigné, alors on considère qu’il vaut 0
+o Si le MAX n’est pas renseigné, alors on considère qu’il vaut
+Number.MAX_VALUE
+o Lorsque l’utilisateur clique sur le bouton « Valider » les résultats sont rafraichis
+en fonction de ce que l’utilisateur a sélectionné.
+2
+TP - GESTION UTILISATEURS
+ENONCE
+• Créez un nouveau fichier tp-10-formulaire.html
+• Dans cet exercice vous allez devoir créer une mini-application permettant de gérer des
+utilisateurs. Pour cela on dispose d’un back et d’une API assez succincte :
+o GET https://digicode.cleverapps.io/utilisateurs/{idCreateur} pour récupérer la
+liste des utilisateurs que vous avez créés
+▪ L’identifiant du créateur désigne la personne qui a créé les utilisateurs
+o POST https://digicode.cleverapps.io/utilisateurs/ pour créer un nv utilisateur
+▪ L’identifiant du créateur est un attribut de l’objet envoyé au back
+o PUT https://digicode.cleverapps.io/utilisateurs/{id} pour modifier un utilisateur
+en fonction de son id.
+▪ L’id de l’utilisateur est fixé par le back.
+▪ L’identifiant du créateur est un attribut de l’objet envoyé au back
+o DELETE https://digicode.cleverapps.io/utilisateurs/{idCreateur}/{id} pour
+supprimer un utilisateur en fonction de son id.
+▪ L’id de l’utilisateur est fixé par le back.
+▪ L’identifiant du créateur désigne la personne qui a créé les utilisateurs
+• Structure d’un utilisateur côté serveur :
+public class UtilisateurDto {
+private Long id;
+private String idCreateur;
+private String dateMaj;
+private String nom;
+private String prenom;
+private String genre;
+private String dateNaissance;
+private String lieuNaissance;
+private String departementNaissance;
+private String numeroRue;
+private String libelleRue;
+private String codePostal;
+private String ville;
+}
+3
+L’attribut idCreateur correspond à l’identifiant de la personne qui a soumis le formulaire (cf.
+paragraphe 3 concernant la création d’un utilisateur)
+L’attribut dateMaj correspond à la date heure de création de l’utilisateur.
+COMPOSANT MODALE-VIEW
+Pour créer votre formulaire, vous pouvez utiliser le composant modale-view mis à disposition
+via le fichier modale-view.js
+Vous devez alors importer dans votre page HTML le fichier modale-view.js et ensuite vous
+pouvez créer des composants modale-view dans votre page HTML.
+Exemple :
+<modale-view id="modale1" modale-width="20%">
+<div slot="title" header-color="#dc3545">Créer un utilisateur</div>
+<div slot="body">
+</div>
+<div slot="footer">
+<input type="button" value="Annuler" onclick="closeModale('modale1')">
+<input type="button" value="Valider" onclick="creerUtilisateur()">
+</div>
+</modale-view>
+Points importants :
+• Vous ne devez pas supprimer les div title, body et footer, par contre vous mettez ce
+que vous voulez dedans.
+• Chaque modale doit avoir un id différent car c’est ce qui permet de contrôler leur
+ouverture/fermeture.
+• Par défaut la modale est invisible.
+• Pour la rendre visible, il faut appeler la méthode openModale(idModale) avec en
+paramètre l’id de la modale (modale1 dans l’exemple)
+• L’attribut modale-width permet de régler la largeur de la modale dans l’écran.
+• L’attribut header-color permet de changer la couleur de l’entête de la modale.
+Les méthodes de contrôle des modales :
+• openModale(idModale) pour afficher une modale
+• closeModale(idModale) pour clore la modale.
+4
+PAGE D’ACCUEIL
+Commencez par créer sur la page d’accueil avec le titre « Gestion des utilisateurs » et un
+tableau des utilisateurs présentant les données suivantes :
+• L’identifiant
+• Le nom
+• Le prénom
+• La date de naissance
+• Le Lieu de naissance
+• L’adresse concaténée
+• Une colonne avec une icone poubelle permettant de supprimer un utilisateur
+Cette page d’accueil contient également un bouton «+ Ajouter » permettant de créer un
+nouvel utilisateur via un formulaire.
+CREATION D’UN UTILISATEUR
+Créer un formulaire de création d’un utilisateur.
+Attention, lorsque vous soumettez les informations au serveur, la propriété identiteCreateur
+doit être renseignée avec votre nom.
+Si vous le souhaitez, vous pouvez utiliser le composant modale-view afin de faire apparaitre le
+formulaire dans une modale lorsque vous cliquez sur le bouton « + Ajouter ».
+Une fois le formulaire finalisé, testez-le avec des données. Si certaines données ne sont pas
+correctement renseignées, le serveur renvoie une erreur. Affichez le message d’erreur s’il y en
+a.
+Faites des correctifs jusqu’à ce que le serveur vous réponde que l’utilisateur a bien été créé.
+AJOUTEZ LA SUPPRESSION D’UN UTILISATEUR
+Mettez en place une modale de confirmation avant d’envoyer l’ordre de suppression côté
+serveur

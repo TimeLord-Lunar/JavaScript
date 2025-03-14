@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <style>
+        /* Style pour le message d'erreur */
+        .erreur {
+            color: red;
+            background-color: #ffe6e6;
+            padding: 5px;
+            border: 1px solid red;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Calculatrice</h1>
+    <form id="formOperation">
+        <label for="nombre1">Nombre 1 :</label>
+        <input type="text" id="nombre1" placeholder="Entrez un nombre">
+        <br><br>
+
+        <label for="nombre2">Nombre 2 :</label>
+        <input type="text" id="nombre2" placeholder="Entrez un nombre">
+        <br><br>
+
+        <label for="operateur">Opération :</label>
+        <select id="operateur">
+            <option value="+">Addition (+)</option>
+            <option value="-">Soustraction (-)</option>
+            <option value="*">Multiplication (*)</option>
+            <option value="/">Division (/)</option>
+        </select>
+        <br><br>
+
+        <button type="button" id="boutonCalculer">Calculer</button>
+    </form>
+
+    <p id="resultat"></p>
+
+    <script>
+        // Sélection des éléments du DOM
+        const nombre1 = document.querySelector("#nombre1");
+        const nombre2 = document.querySelector("#nombre2");
+        const operateur = document.querySelector("#operateur");
+        const resultat = document.querySelector("#resultat");
+        const bouton = document.querySelector("#boutonCalculer");
+
+        // Fonction pour effectuer le calcul
+        const calculer = () => {
+            // Conversion des valeurs en nombres
+            const val1 = parseFloat(nombre1.value);
+            const val2 = parseFloat(nombre2.value);
+
+            // Vérification des valeurs
+            if (isNaN(val1) || isNaN(val2)) {
+                resultat.innerHTML = "Vous devez saisir un nombre";
+                resultat.classList.add("erreur");
+            } else {
+                let res;
+                let message;
+                switch (operateur.value) {
+                    case "+":
+                        res = val1 + val2;
+                        message = `Le résultat de l'addition est : ${res}`;
+                        break;
+                    case "-":
+                        res = val1 - val2;
+                        message = `Le résultat de la soustraction est : ${res}`;
+                        break;
+                    case "*":
+                        res = val1 * val2;
+                        message = `Le résultat de la multiplication est : ${res}`;
+                        break;
+                    case "/":
+                        if (val2 === 0) {
+                            message = "Division par zéro impossible";
+                            resultat.classList.add("erreur");
+                        } else {
+                            res = val1 / val2;
+                            message = `Le résultat de la division est : ${res}`;
+                        }
+                        break;
+                    default:
+                        message = "Opérateur non supporté";
+                        resultat.classList.add("erreur");
+                }
+                resultat.innerHTML = message;
+                resultat.classList.remove("erreur");
+            }
+        };
+
+        // Écouteur d'événement sur le bouton
+        bouton.addEventListener("click", calculer);
+    </script>
+
+</body>
+</html>

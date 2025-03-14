@@ -1,0 +1,21 @@
+TP 11 – JSON-SERVER
+TP - GESTION UTILISATEURS
+ENONCE
+• Créez un fichier utilisateurs.json contenant une liste d’utilisateurs avec les propriétés
+suivantes :
+Id number
+nom string
+prenom string
+dateNaissance string
+lieuNaissance string
+departementNaissance string
+numeroRue string
+libelleRue string
+codePostal string
+ville string
+• Démarrez le serveur json-server avec le fichier utilisateurs.json comme source de
+données
+• Dupliquez le fichier tp10_formulaire.html afin de créer un
+tp11_formulaire_json_server.html
+• Migrez vos URL afin d’utiliser json-server en tant que back plutôt que le serveur
+digicode.

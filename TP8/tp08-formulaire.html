@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Saisie</title>
+    <style>
+        /* Style pour le message d'erreur */
+        .erreur {
+            color: red;
+            background-color: #ffe6e6;
+            padding: 5px;
+            border: 1px solid red;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulaire de Saisie</h1>
+    <form id="formSaisie">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" placeholder="Entrez votre nom">
+        <br><br>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" placeholder="Entrez votre prénom">
+        <br><br>
+
+        <label for="dateNaissance">Date de Naissance :</label>
+        <input type="date" id="dateNaissance">
+        <br><br>
+
+        <button type="button" id="boutonValider">Valider</button>
+    </form>
+
+    <p id="messageErreur"></p>
+
+    <script>
+        // Sélection des éléments du DOM
+        const nom = document.querySelector("#nom");
+        const prenom = document.querySelector("#prenom");
+        const dateNaissance = document.querySelector("#dateNaissance");
+        const messageErreur = document.querySelector("#messageErreur");
+        const bouton = document.querySelector("#boutonValider");
+
+        // Fonction pour vérifier les saisies
+        const verifierSaisies = () => {
+            let erreur = "";
+            // Vérification du nom
+            if (nom.value.trim() === "") {
+                erreur += "Le nom doit être renseigné.<br>";
+            }
+            // Vérification du prénom
+            if (prenom.value.trim() === "") {
+                erreur += "Le prénom doit être renseigné.<br>";
+            }
+            // Vérification de la date de naissance
+            if (dateNaissance.value === "") {
+                erreur += "La date de naissance doit être renseignée.<br>";
+            }
+
+            // Affichage du message d'erreur ou validation du formulaire
+            if (erreur) {
+                messageErreur.innerHTML = erreur;
+                messageErreur.classList.add("erreur");
+            } else {
+                messageErreur.innerHTML = "Formulaire validé avec succès !";
+                messageErreur.classList.remove("erreur");
+                messageErreur.style.color = "green";
+                // Ici, vous pouvez ajouter le code pour soumettre le formulaire si nécessaire
+            }
+        };
+
+        // Écouteur d'événement sur le bouton
+        bouton.addEventListener("click", verifierSaisies);
+    </script>
+
+</body>
+</html>
