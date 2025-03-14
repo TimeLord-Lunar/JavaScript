@@ -1,0 +1,20 @@
+Exercices d’algorithmie
+TABLEAUX, BOUCLES ET CONDITIONS
+CONSIGNES QUALITE
+Vous devrez veiller à la présentation des résultats et au respect des consignes. Dorénavant vous ne
+codez plus pour vous mais pour un client ! Vous êtes des pros !
+CONSIGNES ORGANISATION DES DEVELOPPEMENTS
+Créez un fichier différent pour chaque exercice. Le fichier portera le nom de chaque exercice
+avec la terminaison .js
+EXERCICE AFFICHAGE10FOIS
+• Grace à une boucle, affichez dis fois votre prénom
+EXERCICE AFFICHAGE1A10
+• Grace à une boucle, affichez tous les nombres de 1 à 10
+EXERCICE AFFICHAGEPAIR1A10
+• Grace à une boucle et un test inclus dans la boucle, affichez uniquement les nombres
+pairs
+EXERCICE AFFICHAGETABLEAUX
+• let array = [1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4];
+• Grace à une boucle, affichez tous les éléments du tableau
+EXERCICE AFFICHAGETABLEAUXELTPAIRS
+• Grace à une boucle, affichez tous les éléments du tableau pairs
