@@ -1,0 +1,18 @@
+Variable contenant du JSON
+EXERCICE
+• Déclarez une variable contenant du JSON
+• Cette variable doit permettre de stocker des informations concernant une société.
+Toutes les informations suivantes doivent être contenues dans une seule variable au
+format JSON :
+o Nom : Google
+o Siège social : Googleplex, Mountain View, California, United States
+o Fondateurs :
+▪ Larry Page, né le 26/03/1973 à East Lansing, Michigan
+▪ Sergey Brin, né le 21/08/1973 à Moscou, Union Soviétique
+o Chiffre d’affaires en milliards de $:
+▪ 2008, 16.49
+▪ 2012, 37.97
+▪ 2016, 89.46
+▪ 2018, 136.2
+• Faites une boucle pour afficher les fondateurs de la société ainsi que les chiffres
+d’affaires de la société.

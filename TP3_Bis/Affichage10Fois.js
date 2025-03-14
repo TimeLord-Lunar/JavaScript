@@ -1,3 +1,5 @@
+// // // VARIABLES INITIALIZATION // // //
+
 // Name to display
 let prenom = "VotrePrénom";
 
