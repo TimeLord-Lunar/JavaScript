@@ -1,0 +1,92 @@
+Exercices d’algorithmie
+TABLEAUX, BOUCLES ET CONDITIONS
+CONSIGNES QUALITE
+Vous devrez veiller à la présentation des résultats et au respect des consignes. Dorénavant vous ne
+codez plus pour vous mais pour un client ! Vous êtes des pros !
+CONSIGNES ORGANISATION DES DEVELOPPEMENTS
+Créez un fichier différent pour chaque exercice. Le fichier portera le nom de chaque exercice
+avec la terminaison .js
+EXERCICE AFFICHAGESUIVANT
+• Déclarer une variable contenant une valeur numérique entière
+• Afficher les 10 valeurs numériques suivantes avec une boucle
+EXERCICE CALCULSOMME
+• Déclarer une variable contenant une valeur numérique entière
+• Utiliser une boucle pour calculer la somme de tous les nombres de 1 à cette valeur
+• Exemple de résultat à obtenir si la variable vaut 10 : 55
+EXERCICE AFFICHAGEINVERSE
+• Soit le tableau suivant : let array = [1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4];
+• Afficher l’ensemble des éléments du tableau grâce à une boucle
+• Afficher l’ensemble des éléments dans l’ordre inverse du tableau
+• Créer un tableau arrayCopy, copie du tableau array.
+EXERCICE INVERSIONCONTENU
+• Soit le tableau suivant : let array = [1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4];
+• Créer un tableau arrayCopy et copier tous les éléments de array dans arrayCopy mais
+dans l’ordre inverse.
+• Afficher l’ensemble des éléments des 2 tableaux
+EXERCICE AFFICHAGEPARTIEL
+• Soit le tableau suivant : let array = [1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4];
+• Combiner une boucle et un test de manière à n’afficher que les entiers supérieurs à 3
+2
+• Combiner une boucle et un test de manière à n’afficher que les entiers pairs
+• Combiner une boucle et un test de manière à n’afficher que les valeurs correspondant
+aux index pairs
+• Combiner une boucle et un test de manière à n’afficher que les entiers impairs
+EXERCICE RECHERCHEMAX
+• Soit le tableau suivant : let array = [1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4];
+• Rechercher le plus grand élément du tableau
+EXERCICE RECHERCHEMIN
+• Soit le tableau suivant : let array = [1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4];
+• Rechercher le plus petit élément du tableau
+EXERCICE CALCULMOYENNE
+• Soit le tableau suivant : let array = [1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4];
+• Calculer et afficher la moyenne des éléments du tableau ?
+EXERCICE SOMMEDETABLEAUX
+• Soit le tableau 1 suivant : [1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4];
+• Soit le tableau 2 suivant : [-1, 12, 17, 14, 5, -9, 0, 18, -6, 0, 4, -13, 5, 7, -2, 8, -1] ;
+• Créer un tableau qui contient la somme des 2 précédents tableaux
+EXERCICE SOMMEDETABLEAUXDIFF
+• Soit le tableau 1 suivant : [1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4];
+• Soit le tableau 2 suivant : [-1, 12, 17, 14, 5, -9, 0, 18] ;
+• Créer un tableau qui contient la somme des 2 précédents tableaux. Attention à tenir
+compte de la différence de taille des tableaux.
+EXERCICE COMPARAISONTABLEAU
+• Soit les tableaux suivants :
+o let array1 = [1, 15, -3, 8, 7, 4, -2, 28, -1, 17, 2, 3, 0, 14, -4] ;
+o let array2 = [3, -8, 17, 5, -1, 4, 0, 6, 2, 11, -5, -4, 8] ;
+• Ecrire le code permettant de compter le nombre d’éléments en commun dans ces 2
+tableaux
+EXERCICE FIRSTLAST6
+• Déclarez un tableau d’entiers
+3
+• On calcule une valeur booléenne qui contrôle le tableau de la sorte :
+o elle vaut true si le tableau a au moins 1 élément et si le premier élément ou le
+dernier élément vaut 6.
+o elle vaut false dans les autres cas
+• écrire l’algo avec le minimum de ligne
+EXERCICE FIRSTLAST
+• Déclarer un tableau d’entiers
+• On calcule une valeur booléenne qui contrôle le tableau de la sorte :
+o elle vaut true si le tableau est de longueur supérieure ou égale à 1 et que le
+premier et le dernier élément du tableau ont la même valeur
+o elle vaut false dans les autres cas
+• écrire l’algo avec le minimum de ligne
+EXERCICE ROTATION (FACULTATIF)
+• Déclarer un tableau d’entiers
+• Effectuez une rotation à droite des éléments.
+• Exemple : si vous avez [0,1,2,3] dans le tableau, le tableau contiendra [3,0,1,2] après
+rotation
+EXERCICE INTERACTIFTABLEMULT (FACULTATIF)
+• Ecrire un programme qui, pour une variable donnée entre 1 et 10, affiche sa table de
+multiplication.
+• Voici l’affichage à obtenir si la variable vaut 3:
+Table de 3 :
+3 * 1 = 3
+3 * 2 = 6
+…
+3 * 10 = 30
+EXERCICE INTERACTIFFIBONNACI (FACULTATIF)
+La suite de Fibonacci est une suite qui commence par 0 et 1 et dans laquelle le nombre de
+rang N est égal à la somme des nombres de rangs N-1 et N-2
+4
+• Déclarer une variable n qui contient le rang de la suite : let n = 10 ;
+• Calculer et afficher la valeur de Fibonacci de rang n

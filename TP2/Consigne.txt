@@ -1,0 +1,22 @@
+TP 02
+DECLARATION ET AFFICHAGE DE VARIABLES
+DECLAREZ LES VARIABLES
+• Créez un fichier tp02.js
+• Déclarez 2 variables num1 et num2 contenant des valeurs numériques entières.
+o Affichez les résultats des 5 opérations suivantes :
+▪ Addition
+▪ Soustraction
+▪ Multiplication
+▪ Division
+▪ Modulo
+o Affichez les résultats des 4 opérations de comparaison suivantes
+▪ num1 > num2
+▪ num1 < num2
+▪ num1 == num2
+▪ num2 != num2
+• Déclarez 2 variables b1 et b2 booléennes, une valant true et l’autre false. Affichez les
+résultats des opérations logiques suivantes
+o b1 && b2
+o b1 || b2
+o !b1
+o !b2
